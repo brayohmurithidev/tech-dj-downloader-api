@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Request, Header, HTTPException, status, Depends, Query
 import requests
 
-from utils.deps import get_spotify_token
-from utils.time_format import format_duration
+from app.utils.deps import get_spotify_token
+from app.utils.time_format import format_duration
 
 router = APIRouter(prefix='/spotify', dependencies=[Depends(get_spotify_token)], tags=['Spotify'])
 

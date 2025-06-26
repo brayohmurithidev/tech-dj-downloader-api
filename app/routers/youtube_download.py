@@ -1,11 +1,11 @@
 from fastapi import APIRouter, HTTPException, BackgroundTasks
 
 
-from schemas import SearchResult, SearchRequest, DownloadRequest
+from app.schemas import SearchResult, SearchRequest, DownloadRequest
 from yt_dlp import YoutubeDL
 import  os
 from uuid import uuid4
-from hooks import make_progress_hook, download_progress
+from app.hooks import make_progress_hook, download_progress
 import re
 
 def sanitize_filename(name: str) -> str:

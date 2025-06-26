@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from routers.youtube_download import router as download_router
-from routers.auth import router as auth_router
-from routers.spotify import router as spotify_router
+from app.routers.youtube_download import router as download_router
+from app.routers.auth import router as auth_router
+from app.routers.spotify import router as spotify_router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
