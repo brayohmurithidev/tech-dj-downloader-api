@@ -3,6 +3,8 @@ from app.routers.youtube_download import router as download_router
 from app.routers.auth import router as auth_router
 from app.routers.spotify import router as spotify_router
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+load_dotenv()
 
 app = FastAPI()
 
