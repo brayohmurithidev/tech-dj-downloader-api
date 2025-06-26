@@ -13,6 +13,7 @@ SPOTIFY_CLIENT_SECRET=os.environ.get("SPOTIFY_CLIENT_SECRET")
 FRONTEND_REDIRECT=os.environ.get("FRONTEND_REDIRECT")
 
 
+
 # Login
 @router.get('/spotify/login')
 def login():
