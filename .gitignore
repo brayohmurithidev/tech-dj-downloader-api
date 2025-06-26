@@ -1,5 +1,8 @@
 .idea
+.DS_Store
 .venv
 .env
 test_main.http
 downloads
+**__pycache__
+codealike.json

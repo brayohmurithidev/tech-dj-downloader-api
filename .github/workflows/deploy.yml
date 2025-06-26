@@ -1,0 +1,32 @@
+name: Deploy to Azure VM on deployment branch
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Deploy to Azure VM via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.AZURE_HOST }}
+          username: ${{ secrets.AZURE_USER }}
+          key: ${{ secrets.AZURE_SSH_KEY }}
+          script: |
+            cd ${{ secrets.APP_PATH }}
+            git pull origin deploy
+            source venv/bin/activate  # if using Python virtualenv
+            pip install -r requirements.txt  # or npm install if Node.js
+            sudo systemctl restart techdj-api.service  # restart your service
