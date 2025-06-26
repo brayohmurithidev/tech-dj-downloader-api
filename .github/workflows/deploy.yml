@@ -26,6 +26,7 @@ jobs:
           key: ${{ secrets.AZURE_SSH_KEY }}
           script: |
             cd ${{ secrets.APP_PATH }}
+            echo "${{ secrets.ENV_FILE }}" > .env
             git pull origin deploy
             source venv/bin/activate  # if using Python virtualenv
             pip install -r requirements.txt  # or npm install if Node.js
