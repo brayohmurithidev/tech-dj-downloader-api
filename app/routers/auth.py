@@ -54,4 +54,4 @@ def spotify_callback(code: str):
 
     # Optionally generate your own JWT and send to frontend
     redirect_url = f"{FRONTEND_REDIRECT}?token={access_token}"
-    return RedirectResponse(f"http://localhost:5173/auth/callback?token={access_token}")
+    return RedirectResponse(f"{FRONTEND_REDIRECT}/auth/callback?token={access_token}")
